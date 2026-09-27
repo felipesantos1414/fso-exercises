@@ -1,0 +1,33 @@
+### Valido -> 201
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Felipe Santos",
+  "number": "55-11-99999-0000"
+}
+
+### Sem name -> 400
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "number": "123-456"
+}
+
+### Sem number -> 400
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Sem Numero"
+}
+
+### Nome duplicado -> 400
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Ada Lovelace",
+  "number": "000-000"
+}

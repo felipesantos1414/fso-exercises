@@ -1,0 +1,5 @@
+### Existente -> 200
+GET http://localhost:3001/api/persons/2
+
+### Inexistente -> 404
+GET http://localhost:3001/api/persons/999
