@@ -1,0 +1,37 @@
+@token = COLE_AQUI_O_TOKEN_DO_LOGIN
+
+### Listar blogs
+GET http://localhost:3003/api/blogs
+
+### Criar blog (exige token)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Type wars",
+  "author": "Robert C. Martin",
+  "url": "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
+  "likes": 2
+}
+
+### Criar sem token -> 401
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Sem token",
+  "url": "http://exemplo.com"
+}
+
+### Atualizar likes
+PUT http://localhost:3003/api/blogs/COLE_O_ID_AQUI
+Content-Type: application/json
+
+{
+  "likes": 99
+}
+
+### Excluir (exige token do criador)
+DELETE http://localhost:3003/api/blogs/COLE_O_ID_AQUI
+Authorization: Bearer {{token}}
